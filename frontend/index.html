@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Website Analyzer v0.1</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+<body>
+    <nav>
+        <a class="logo" href="#">Website Analyzer v0.1</a>
+    </nav>
+
+    
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col l6 offset-l3"> 
+                <h2>Enter Website To Analyze:</h2>
+                <div class="center">
+                    <input  v-model="website" type="text">
+                    <button @click.stop="analyse" class="btn">Analyze Now</button>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <h2>Website URL: {{ website }}</h2>
+            <div class="col l9 m12 s12">
+                <div class="panel full-height">
+                    <div class="info">
+                        <br/><br/><br/>
+                        <h2>Test Results</h2>
+                        <br/><br/>
+                        <p><div class="dot fail"></div> {{ failed }} out of {{ results.complete }} Tests Failed</p>
+                        <p><div class="dot pass"></div> {{ passed }} out of {{ results.complete }} Tests Passed</p>
+                        <hr>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+            <div class="col l3 m12 s12">
+                <div class="panel half-height">
+                    <h2>{{ results.pageSpeed.time }} s<br/><small>Page Loading Time</small></h2>
+                    
+                </div>
+                <div class="panel half-height">
+                    <h2>{{ results.firstbyte.time }} s<br/><small>Time to First Byte</small></h2>
+                </div>
+            </div>
+            
+
+            <div class="col l12">
+                <div class="panel">
+                    <h2>All Links</h2>
+                    <br/>
+                    <hr>
+                    <br/>
+                    <table class="table striped">
+                        <tbody>
+                            <tr v-for="link in results.links.links">
+                                <td>{{link}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            
+            <div class="col l12">
+                <div class="panel">
+                    <h2>404s</h2>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    <table class="table striped">
+                        <tbody>
+                            <tr v-for="link in results.links.brokenLinks">
+                                <td>{{link}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

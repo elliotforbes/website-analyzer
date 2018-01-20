@@ -1,0 +1,87 @@
+body{
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    background-color: #F1F3F7;
+    color: #2c3e50;
+}
+nav {
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #E0E2E7;
+    box-shadow: none;
+}
+
+nav a.logo {
+    color: #2F353C;
+    font-size: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    float: left;
+    display: block;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.fail { background-color: #F06046; }
+.neutral { background-color: #E0E2E7; }
+.pass { background-color: #0AD0A2; }
+
+h2 {
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.panel {
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    margin-top: 20px;
+}
+
+.panel hr {
+    background-color: #E0E2E7;
+}
+
+.full-height {
+    height: 500px;
+}
+.half-height {
+    padding-top: 80px;
+    height: 240px;
+}
+
+.panel .chart {
+    width: 50%;
+    height: 100%;
+}
+
+.panel p {
+    margin: 0;
+    padding: 0;
+}
+
+.panel h2 {
+    margin: 0;
+    padding: 0;
+    line-height: 36px;
+    color: #2c3e50;
+    font-size: 56px;
+    font-weight: 300;
+    margin: 0;
+    font-size: 3.2em;
+}
+
+.panel h2 small {
+    font-weight: 200;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
